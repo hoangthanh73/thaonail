@@ -1,0 +1,27 @@
+// 1. Thiết lập biến để dễ quản lý
+$font-size-base: 14px;
+
+html {
+  // Thiết lập font gốc là 14px
+  font-size: $font-size-base;
+}
+
+body {
+  margin: 0;
+  font-family: arial, 'Inter', sans-serif;
+  color: $text-dark;
+  font-size: 1rem; // Tương đương 14px
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

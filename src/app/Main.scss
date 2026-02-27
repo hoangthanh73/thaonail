@@ -1,0 +1,8 @@
+// 1. Thư viện
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// 2. Cấu trúc chia nhỏ
+@import "../styles/variables";
+@import "../styles/_base";// Code Header của bạn
+@import "../styles/utilities"; // các component có chung style

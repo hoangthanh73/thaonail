@@ -1,0 +1,55 @@
+@use './variables' as *;
+
+.ctaSection {
+  background-color: $bg-light; // Dùng màu hồng nhạt thương hiệu của bạn
+  text-align: center;
+} 
+
+.buttonGroup {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
+}
+
+// NÚT CHÍNH: Màu hồng gradient giống nút Hero
+.btnPrimary {
+  background: linear-gradient(to right, #f68da1, #f16886); // Tông hồng giống ảnh Hero của bạn
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(241, 104, 134, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    color: #fff;
+  }
+}
+
+// NÚT PHỤ: Viền mảnh, chữ màu đỏ rượu
+.btnOutline {
+  background: transparent;
+  color: $primary;
+  border: 1px solid $primary;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $primary;
+    color: #fff;
+  }
+}

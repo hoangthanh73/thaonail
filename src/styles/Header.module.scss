@@ -1,0 +1,171 @@
+@use './_variables' as *;
+
+.header {
+    position: sticky;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+
+    // Mặc định cho màn hình nhỏ (dưới 1024px)
+    top: 0;
+
+    // Cho màn hình từ 992px trở lên
+    @media (min-width: 992px) {
+        top: -90px;
+        transition: top 0.3s ease;
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        top: -64px;
+        transition: top 0.3s ease;
+    }
+
+    .topBar {
+        background-color: $bg-light;
+        color: $primary;
+        font-size: 14px;
+        padding: 8px 0;
+        border-bottom: 1px solid #F5E6E0;
+    }
+
+    .navbar {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        color: $primary;
+        font-size: 4rem;
+        font-weight: 600;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+
+        // Hiệu ứng nhịp đập nhẹ nhàng (Phù hợp mobile)
+        animation: softPulse 4s infinite ease-in-out;
+
+        @media (max-width: 991px) {
+            font-size: 3rem; // Thu nhỏ xuống khoảng 48px
+        }
+
+        // Mobile (Màn hình dưới 576px)
+        @media (max-width: 575px) {
+            font-size: 2.2rem; // Thu nhỏ xuống khoảng 35px để vừa vặn chiều ngang
+        }
+
+        // Dải sáng lướt qua (Tạo cảm giác như móng tay vừa sơn bóng)
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right,
+                    transparent,
+                    rgba(255, 255, 255, 0.4),
+                    transparent);
+            transform: skewX(-30deg);
+            animation: shine 5s infinite ease-in-out;
+        }
+    }
+
+    // Định nghĩa các chuyển động
+    @keyframes softPulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.03);
+        }
+
+        // Chỉ phóng to cực nhẹ 3%
+    }
+
+    @keyframes shine {
+        0% {
+            left: -100%;
+        }
+
+        20% {
+            left: 150%;
+        }
+
+        // Chạy nhanh qua trong 20% thời gian đầu
+        100% {
+            left: 150%;
+        }
+
+        // Nghỉ ngơi ở cuối để không gây khó chịu
+    }
+
+
+    // Khai báo Animation
+    @keyframes shine {
+        0% {
+            left: -150%;
+        }
+
+        20% {
+            left: 150%;
+        }
+
+        100% {
+            left: 150%;
+        }
+    }
+
+    .navLink {
+        color: $primary;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: 500;
+        line-height: 1.5;
+        position: relative;
+        padding: 8px 0;
+
+        &.active {
+            color: $accent !important; // Đổi màu chữ khi đang ở trang này
+
+            &::after {
+                width: 100%; // Giữ thanh gạch chân luôn hiển thị
+            }
+        }
+
+        &:hover {
+            color: $accent;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: $accent;
+            transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+
+    // Tùy chỉnh nút toggle cho đồng bộ màu sắc
+    .mobileToggle {
+        border: none;
+        color: $primary;
+        font-size: 2.4rem;
+        background: transparent;
+
+        @media (max-width: 768px){
+            font-size: 1.8rem;
+        }
+    }
+}

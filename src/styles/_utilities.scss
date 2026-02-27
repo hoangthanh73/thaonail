@@ -1,0 +1,143 @@
+// style dùng chung cho nhiều component
+
+.section-wrapper {
+  padding: 48px 0;
+
+  @media (min-width: 768px) {
+    padding: 60px 0;
+  }
+
+  @media (min-width: 992px) {
+    padding: 72px 0;
+  }
+}
+
+.section-title {
+  font-family: $font-main;
+  color: $primary;
+  font-size: 42px;
+  font-style: italic;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background-color: $accent;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 34px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 42px;
+  }
+}
+
+.section-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: $text-dark;
+  max-width: 100%;
+
+  @media (min-width: 992px) {
+    font-size: 18px;
+  }
+}
+
+
+/* Khởi tạo Base Button */
+.btn-ct {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 40px; // Tăng padding để nút nhìn "thoáng" hơn
+  border-radius: 50px;
+  font-weight: 500; // Giảm độ dày font xuống một chút cho thanh lịch
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px; // Tăng khoảng cách chữ để sang hơn
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: $font-sans;
+  position: relative;
+  border: 1px solid transparent; // Viền 1px mảnh hơn
+}
+
+/* 1. Primary Button: Đỏ rượu ($primary)
+     Thiết kế theo kiểu Solid & Glow */
+.btn-ct-primary {
+  @extend .btn-ct;
+  background-color: $primary;
+  color: $white;
+  box-shadow: 0 4px 15px rgba($primary, 0.15);
+
+  &:hover {
+    background-color: transparent;
+    color: $primary;
+    border-color: $primary;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba($primary, 0.1);
+
+    // Khi hover, đổi màu icon hoặc text sang accent nếu muốn điểm nhấn nhỏ
+    &::after {
+      color: $accent;
+    }
+  }
+}
+
+/* 2. Outline Button: Viền mảnh ($primary)
+     Thiết kế theo kiểu tinh tế, Hover mới hiện Accent */
+.btn-ct-outline {
+  @extend .btn-ct;
+  background: transparent;
+  border: 1px solid rgba($primary, 0.3); // Viền mờ lúc đầu
+  color: $primary;
+
+  &:hover {
+    border-color: $accent; // Chỉ hiện viền vàng đồng khi hover
+    color: $accent;
+    background-color: rgba($accent, 0.02);
+    transform: translateY(-2px);
+    letter-spacing: 2.5px; // Hiệu ứng chữ dãn nhẹ khi hover cực sang
+  }
+}
+
+/* 3. CTA Special: Nút dành riêng cho CTA cuối trang 
+     Kết hợp đỏ rượu và gạch chân vàng đồng */
+.btn-ct-cta {
+  @extend .btn-ct;
+  background-color: $white;
+  color: $primary;
+  border: 1px solid $white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    background-color: $white;
+    border-color: $accent;
+    color: $accent;
+    transform: scale(1.05);
+  }
+}
+
+.btn-ct-full {
+  display: flex;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .btn-mobile-full {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px; // Tạo khoảng cách khi các nút chồng lên nhau
+  }
+}

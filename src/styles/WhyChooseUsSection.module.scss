@@ -1,0 +1,49 @@
+@use './variables' as *; // Đảm bảo import đúng file variables chứa $primary, $light-bg
+
+.sectionWrapper {
+  background: $bg-light;
+  position: relative;
+  overflow: hidden;
+}
+
+.reasonCard {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(172, 42, 69, 0.05);
+
+  &:hover {
+    transform: translateY(-5px);
+    background: #fff;
+    box-shadow: 0 15px 40px rgba(172, 42, 69, 0.1);
+    border-color: $accent;
+  }
+
+  .iconCheck {
+    background-color: $accent;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .text {
+    font-size: 18px;
+    font-weight: 500;
+    color: $primary;
+    margin: 0;
+  }
+}

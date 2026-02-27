@@ -1,0 +1,75 @@
+@use './variables' as *;
+
+.feedbackSection {
+  background-color: #fff;
+  text-align: center;
+}
+
+.subTitle {
+  color: $accent;
+  font-family: $font-sans;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.reviewCard {
+  background: $bg-light;
+  padding: 40px 30px;
+  border-radius: 20px;
+  height: 100%;
+  margin: 15px; // Tạo khoảng trống cho bóng đổ
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+
+  &:hover {
+    border-color: $accent;
+    transform: translateY(-5px);
+  }
+
+  .quoteIcon {
+    color: rgba($primary, 0.2);
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    font-style: italic;
+    color: $text-dark;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    min-height: 100px;
+  }
+
+  .stars {
+    color: $accent;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .userInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .name {
+      color: $primary;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .role {
+      font-size: 13px;
+      color: #888;
+    }
+  }
+}
+
+// Tùy chỉnh dấu chấm chuyển slide (bullets) của Swiper cho đồng bộ
+:global(.swiper-pagination-bullet-active) {
+  background: $primary !important;
+}

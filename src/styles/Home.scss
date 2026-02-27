@@ -1,0 +1,38 @@
+$burgundy: #8a2b44;
+$gold: #eeb15b;
+
+.hero-banner {
+  height: 80vh;
+  .hero-image-wrapper {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+  }
+  .hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 15px;
+  }
+}
+
+.contact-home-section {
+  background-color: #f2a3b9; // Màu hồng đậm hơn cho form
+  .wave-decoration {
+    height: 50px;
+    background: url('/images/wave-white.svg') repeat-x;
+    transform: translateY(-100%);
+  }
+}
+
+.btn-gold {
+  background-color: $gold;
+  color: #fff;
+  border-radius: 25px;
+  padding: 10px 30px;
+  &:hover { background-color: darken($gold, 10%); color: #fff; }
+}
